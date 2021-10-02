@@ -1,13 +1,12 @@
-const codebreaker = require('./codebreaker');
 const express = require("express");
 const app = express();
-var x = "";
+const codebreaker = require('./code-breaker');
+const cors = require("cors")
 
-var port = process.env.PORT || 8080  
+app.use(cors())
 
 app.get('/api/randomNumber', function(req, res) {
   let number = codebreaker.generateNumber();
-  let x = number;
   res.json({ ramdonNumber: number })
 })
 
@@ -23,6 +22,5 @@ app.get('/api/guessNumber', function(req, res) {
   
 })
 
-app.listen(port, () =>{
-  console.log('API escuchando en el puerto ' + port)
-})
+//exports app module
+module.exports = app;
