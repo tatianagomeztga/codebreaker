@@ -1,6 +1,15 @@
-var number = "1234";
-var result="";
-var validar ="";
+var min = 0000;
+var max = 10000;
+var number = "";
+var result= "";
+var validar = "";
+
+function generateNumber(){
+  var n = Math.random() * (max-min) + min;
+  n = Math.round(n);
+  number = n.toString();
+  return n;
+}
 
 function guessNumber(num){
   for(var j=0; j<4; j++){
@@ -25,3 +34,4 @@ function guessNumber(num){
   return validar;
 }
 module.exports.guessNumber = guessNumber;
+module.exports.generateNumber = generateNumber;
