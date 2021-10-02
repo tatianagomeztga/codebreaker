@@ -15,7 +15,12 @@ app.get('/api/guessNumber', function(req, res) {
   var queryParameter = req.query;
   n = queryParameter.number.toString();
   var result = codebreaker.guessNumber(n);
-  res.json({ mensaje: result })
+  if (result != ""){
+    res.json({ mensaje: result })
+  }else{
+    res.json({ mensaje: "Sigue intentando"})
+  }
+  
 })
 
 app.listen(port, () =>{
